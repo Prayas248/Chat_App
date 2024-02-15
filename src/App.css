@@ -1,2 +1,87 @@
+.room {
+    height: 10vh;
+    width: auto;
+    background-color: rgb(18, 233, 82);
+    border-radius: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+
+}
+
+#typeroom {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6em;
+    font-weight: 800;
+    padding-right: 24px;
+}
+
+#enter-input {
+    background-color: transparent;
+    border: 2px;
+    border-color: gray;
+    border-style: groove;
+    height: 35px;
+    width: 25vw;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+#enter-chat {
+    height: 40px;
+    width: 6.5vw;
+    margin-left: 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    font-size: 1.1em;
+    font-weight: 700;
+    background-color: rgb(5, 151, 5);
+    border: 0px;
+    cursor: pointer; 
+   
+}
+
+#enter-chat:hover {
+    background-color: rgb(1, 94, 32);
+}
 
 
+@media (max-width: 768px) {
+    .room {
+        height: 30vh;
+        padding-left: 20px;
+        padding-right: 20px;
+        flex-wrap: wrap;
+    }
+    #enter-input {
+        width: 50vw;
+    }
+    #enter-chat {
+        width: 120px;
+        height: 50px;
+        transform: translateY(10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .room {
+        height: 30vh;
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-wrap: wrap;
+    }
+    #enter-input {
+        width: 70vw;
+    }
+    #enter-chat {
+        width: 100px;
+        height: 50px;
+       
+    }
+}

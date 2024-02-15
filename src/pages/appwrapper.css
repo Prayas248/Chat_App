@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(56, 255, 172);
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.button-bahr{
+    display: flex;
+    
+}
+
+.app-header {
+    font-family: 'Belanosima', sans-serif;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.sign-out {
+    margin-top: 20px;
+    height: 45px;
+    width: 100px;
+    border-radius: 10px;
+    color: aliceblue;
+    font-size: 1.1em;
+    font-weight: 700;
+    background-color: rgb(5, 151, 5);
+    border: 0px;
+    margin: 10px;
+}
+
+.sign-out:hover {
+    cursor: pointer;
+    background-color: rgb(1, 94, 32);
+}
+
+/* Media queries for tablets */
+@media (max-width: 768px) {
+    .App {
+        align-items: flex-start;
+    }
+    .sign-out {
+        width: 80px;
+    }
+}
+
+/* Media queries for mobile phones */
+@media (max-width: 480px) {
+    .sign-out {
+        width: 60px;
+        font-size: 1em;
+    }
+}

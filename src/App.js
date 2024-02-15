@@ -1,26 +1,50 @@
-
-import { BrowserRouter as Router, Routes, Route,Link } from 'react-router-dom';
+import React, { useState} from "react";
+import { Chat } from "./pages/chater";
+import { Auth } from "./pages/Auth";
+import { AppWrapper } from "./pages/Appwrapper";
+import Cookies from "universal-cookie";
 import "./App.css";
-import "./Navbar.css";
-import "./login.css";
-import { Home } from "./Home";
-import { Blog } from "./Blog";
-import {Navbar} from "./Navbar";
-import { Login } from './login';
-function App() {
-  return (
-    <div className="App">
-     <Router>
-      <Navbar />
-      <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/login" element={<Login />} />
-      </Routes>
 
-    </Router>
-    </div>
+
+const cookies = new Cookies();
+
+function ChatApp() {
+  const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
+  const [isInChat, setIsInChat] = useState(null);
+  const [room, setRoom] = useState("");
+
+  if (!isAuth) {
+    return (
+      <AppWrapper
+        isAuth={isAuth}
+        setIsAuth={setIsAuth}
+        setIsInChat={setIsInChat}
+      >
+        <Auth setIsAuth={setIsAuth} />
+      </AppWrapper>
+    );
+  }
+
+  return (
+    <AppWrapper isAuth={isAuth} setIsAuth={setIsAuth} setIsInChat={setIsInChat}>
+      {!isInChat ? (
+        <div className="room">
+          <label id="typeroom"> Type room name: </label>
+          <input onChange={(e) => setRoom(e.target.value)} id="enter-input"/>
+          <button
+            onClick={() => {
+              setIsInChat(true);
+            }}
+            id="enter-chat"
+          >
+            Enter Chat
+          </button>
+        </div>
+      ) : (
+        <Chat room={room} />
+      )}
+    </AppWrapper>
   );
 }
 
-export default App;
+export default ChatApp;
